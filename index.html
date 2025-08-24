@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Connect Four — by Kushi</title>
+  <meta name="description" content="A sleek, responsive Connect Four game built with HTML, CSS, and JavaScript." />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="app-header">
+    <h1>Connect <span>Four</span></h1>
+    <div class="controls">
+      <label class="mode">
+        Mode:
+        <select id="modeSelect" aria-label="Game mode">
+          <option value="pvp" selected>Player vs Player</option>
+          <option value="cpu">Player vs CPU</option>
+        </select>
+      </label>
+      <label class="first-move" id="firstMoveWrap" hidden>
+        First move:
+        <select id="firstMove" aria-label="First move">
+          <option value="human" selected>Human</option>
+          <option value="cpu">CPU</option>
+        </select>
+      </label>
+      <label class="difficulty" id="difficultyWrap" hidden>
+        CPU level:
+        <select id="difficulty" aria-label="CPU difficulty">
+          <option value="easy">Easy</option>
+          <option value="medium" selected>Medium</option>
+          <option value="hard">Hard</option>
+        </select>
+      </label>
+      <button id="newGameBtn" class="btn">New Game</button>
+      <button id="undoBtn" class="btn" aria-label="Undo last move">Undo</button>
+      <button id="resetBtn" class="btn btn-ghost" aria-label="Reset scores">Reset Scores</button>
+    </div>
+  </header>
+
+  <main class="main">
+    <section class="scoreboard" aria-live="polite">
+      <div class="score">
+        <span class="disc p1"></span>
+        <strong>Player 1</strong>
+        <span id="scoreP1">0</span>
+      </div>
+      <div class="score">
+        <span class="disc p2"></span>
+        <strong id="p2Label">Player 2</strong>
+        <span id="scoreP2">0</span>
+      </div>
+      <div class="score">
+        <span class="disc tie"></span>
+        <strong>Ties</strong>
+        <span id="scoreTie">0</span>
+      </div>
+    </section>
+
+    <section class="board-wrap">
+      <div id="turnBanner" class="banner" aria-live="polite">Player 1's turn ⏳</div>
+      <div id="board" class="board" role="grid" aria-label="Connect Four board" aria-rowcount="6" aria-colcount="7">
+        <!-- Columns will be injected by JS -->
+      </div>
+      <div id="winnerBanner" class="banner winner" aria-live="assertive" hidden></div>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    <p>
+      Built with ❤️ using <strong>HTML + CSS + JavaScript</strong>. 
+      <a href="https://github.com/" target="_blank" rel="noopener">Open-source</a> ready.
+    </p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
